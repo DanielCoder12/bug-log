@@ -43,7 +43,7 @@ class BugsService {
         return bug
     }
     async getAllBugs() {
-        const bugs = await dbContext.Bugs.find().sort('-updatedAt')
+        const bugs = await dbContext.Bugs.find().sort('-updatedAt').populate('creator', 'name picture email')
         // .populate('creator', 'name picture email _id')
         return bugs
     }
